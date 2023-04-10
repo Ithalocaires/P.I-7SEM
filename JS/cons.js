@@ -34,6 +34,8 @@ const monthlyConfig = {
   options: {}
 };
 
+console.log("teste");
+
 // Criação dos gráficos
 const dailyChart = new Chart(document.getElementById('daily-chart'), dailyConfig);
 const monthlyChart = new Chart(document.getElementById('monthly-chart'), monthlyConfig);
