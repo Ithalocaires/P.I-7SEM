@@ -5,15 +5,20 @@ body {
 }
 
 header {
-    background-color: #51a8e2;
+    background-color: #73b4ff;
     color: white;
     padding: 10px 2%;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .chart-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .sidebar {
@@ -49,6 +54,39 @@ header {
     color: #999;
 }
 
+.sidebar a:hover {
+    border-left: 4px solid #73b4ff;
+    background-color: rgb(245, 245, 245);
+    color: #222;
+    font-weight: bold;
+}
+
+.sidebar a:hover .sidebar a>svg {
+    color: #222;
+}
+
+.content {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.titulo-secao {
+    background-color: white;
+    padding: 10px;
+}
+
+.titulo-secao h2 {
+    font-size: 19px;
+}
+
+.titulo-secao p {
+    font-size: 14px;
+}
+
+.titulo-secao svg {
+    color: #73b4ff;
+}
 
 canvas {
     width: 400px;
