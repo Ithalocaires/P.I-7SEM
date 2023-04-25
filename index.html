@@ -1,3 +1,7 @@
+<html lang="pt-br" data-theme="light" data-cidade="americana">
+
+</html>
+
 <head>
     <meta charset="UTF-8">
     <title>Dashboard de Consumo de Água</title>
@@ -15,8 +19,8 @@
             <a href="#"><i class="fa-solid"></i> Dashboard</a>
             <br />
             <hr>
-            <h3>Usuario</h3>
-            <a href="#"><i class="fa-solid"></i> Usuarios</a>
+            <h3>Usuário</h3>
+            <a href="#"><i class="fa-solid"></i> Usuários</a>
 
             <br />
             <hr>
@@ -28,8 +32,13 @@
                 </br>
                 <hr>
             </div>
-            <canvas id="daily-chart"></canvas>
-            <canvas id="monthly-chart"></canvas>
+            <label for="filtro">Filtrar por:</label>
+            <select id="filtro">
+                <option value="dia">Dia</option>
+                <option value="semana">Semana</option>
+                <option value="mes">Mês</option>
+            </select>
+            <canvas id="myChart"></canvas>
         </div>
     </section>
     <script src="/JS/cons.js"></script>
