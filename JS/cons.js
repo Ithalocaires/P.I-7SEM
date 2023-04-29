@@ -1,5 +1,7 @@
+import { Color } from "chart.js";
 
-//Dados fictícios de consumo de água
+chart.register(Colors);
+
 const dados = [
   { data: '2023-04-23', consumo: 10 },
   { data: '2023-04-24', consumo: 20 },
@@ -58,13 +60,14 @@ function filtrarDados() {
 document.getElementById('filtro').addEventListener('change', filtrarDados);
 
 const config = {
-	type: 'bar',
+	type: 'doughnut',
 	data: {
 		labels: [],
 		datasets: [{
 			label: 'Consumo de água',
 			data: [],
 			fill: false,
+			backgroundColor: [Colors],
 			borderColor: 'blue',
 			tension: 0.1
 		}]
