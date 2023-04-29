@@ -1,12 +1,11 @@
-<html lang="pt-br" data-theme="light" data-cidade="americana">
-
 </html>
 
 <head>
     <meta charset="UTF-8">
     <title>Dashboard de Consumo de Água</title>
     <link rel="stylesheet" href="./CSS/main.css">
-    <script src="/JS/cons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./JS/cons.js"></script>
 </head>
 
 <body>
@@ -25,7 +24,7 @@
             <br />
             <hr>
         </div>
-
+        <script src="./JS/cons.js"></script>
         <div class="content">
             <div class="titulo-secao">
                 <h2>Gráficos para controle de uso de água</h2>
@@ -38,10 +37,11 @@
                 <option value="semana">Semana</option>
                 <option value="mes">Mês</option>
             </select>
-            <canvas id="myChart"></canvas>
+            <canvas id="chart"></canvas>
+
         </div>
     </section>
-    <script src="/JS/cons.js"></script>
+
 </body>
 
 </html>

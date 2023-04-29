@@ -1,3 +1,4 @@
+
 //Dados fictícios de consumo de água
 const dados = [
   { data: '2023-04-23', consumo: 10 },
@@ -25,8 +26,39 @@ const dados = [
   { data: '2023-05-15', consumo: 20 }
 ];
 
+// Cria o gráfico com os dados iniciais
+let ctx = document.getElementById('chart').getContext('2d');
+let chart = new Chart(ctx, config);
+
+// Função para filtrar os dados
+function filtrarDados() {
+	const filtro = document.getElementById('filtro').value;
+	let dadosFiltrados = [];
+
+	switch(filtro) {
+		case 'dia':
+			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'day'));
+			break;
+		case 'semana':
+			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'week'));
+			break;
+		case 'mes':
+			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'month'));
+			break;
+	}
+
+	config.data.labels = dadosFiltrados.map(dado => dado.data);
+	config.data.datasets[0].data = dadosFiltrados.map(dado => dado.consumo);
+
+  // Atualiza o gráfico com os dados filtrados
+  chart.update(); 
+}
+
+// Adiciona o evento de mudança do filtro
+document.getElementById('filtro').addEventListener('change', filtrarDados);
+
 const config = {
-	type: 'line',
+	type: 'bar',
 	data: {
 		labels: [],
 		datasets: [{
@@ -89,38 +121,10 @@ const config = {
 					display: true,
 					labelString: 'Consumo (litros)'
 				}
-			}]
+			}]	
 		}
 	}
 };
 
-// Função para filtrar os dados
-function filtrarDados() {
-	const filtro = document.getElementById('filtro').value;
-	let dadosFiltrados = [];
 
-	switch(filtro) {
-		case 'dia':
-			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'day'));
-			break;
-		case 'semana':
-			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'week'));
-			break;
-		case 'mes':
-			dadosFiltrados = dados.filter(dado => moment(dado.data).isSame(moment(), 'month'));
-			break;
-	}
 
-	config.data.labels = dadosFiltrados.map(dado => dado.data);
-	config.data.datasets[0].data = dadosFiltrados.map(dado => dado.consumo);
-
-  // Atualiza o gráfico com os dados filtrados
-  myChart.update(); 
-}
-
-// Cria o gráfico com os dados iniciais
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, config);
-
-// Adiciona o evento de mudança do filtro
-document.getElementById('filtro').addEventListener('change', filtrarDados);
