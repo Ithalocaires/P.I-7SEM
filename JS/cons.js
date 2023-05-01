@@ -1,36 +1,31 @@
-import { Color } from "chart.js";
-
-chart.register(Colors);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>;
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>;
 
 const dados = [
-  { data: '2023-04-23', consumo: 10 },
-  { data: '2023-04-24', consumo: 20 },
-  { data: '2023-04-25', consumo: 15 },
-  { data: '2023-04-26', consumo: 5 },
-  { data: '2023-04-27', consumo: 25 },
-  { data: '2023-04-28', consumo: 12 },
-  { data: '2023-04-29', consumo: 18 },
-  { data: '2023-04-30', consumo: 8 },
-  { data: '2023-05-01', consumo: 22 },
-  { data: '2023-05-02', consumo: 17 },
-  { data: '2023-05-03', consumo: 14 },
-  { data: '2023-05-04', consumo: 6 },
-  { data: '2023-05-05', consumo: 24 },
-  { data: '2023-05-06', consumo: 13 },
-  { data: '2023-05-07', consumo: 19 },
-  { data: '2023-05-08', consumo: 9 },
-  { data: '2023-05-09', consumo: 23 },
-  { data: '2023-05-10', consumo: 16 },
-  { data: '2023-05-11', consumo: 11 },
-  { data: '2023-05-12', consumo: 7 },
-  { data: '2023-05-13', consumo: 21 },
-  { data: '2023-05-14', consumo: 14 },
-  { data: '2023-05-15', consumo: 20 }
+  { data: '23-04-2023', consumo: 10 },
+  { data: '24-04-2023', consumo: 20 },
+  { data: '25-04-2023', consumo: 15 },
+  { data: '26-04-2023', consumo: 5 },
+  { data: '27-04-2023', consumo: 25 },
+  { data: '28-04-2023', consumo: 12 },
+  { data: '29-04-2023', consumo: 18 },
+  { data: '30-04-2023', consumo: 8 },
+  { data: '01-05-2023', consumo: 22 },
+  { data: '02-05-2023', consumo: 17 },
+  { data: '03-05-2023', consumo: 14 },
+  { data: '04-05-2023', consumo: 6 },
+  { data: '05-05-2023', consumo: 24 },
+  { data: '06-05-2023', consumo: 13 },
+  { data: '07-05-2023', consumo: 19 },
+  { data: '08-05-2023', consumo: 9 },
+  { data: '09-05-2023', consumo: 23 },
+  { data: '10-05-2023', consumo: 16 },
+  { data: '11-05-2023', consumo: 11 },
+  { data: '12-05-2023', consumo: 7 },
+  { data: '13-05-2023', consumo: 21 },
+  { data: '14-05-2023', consumo: 14 },
+  { data: '15-05-2023', consumo: 20 }
 ];
-
-// Cria o gráfico com os dados iniciais
-let ctx = document.getElementById('chart').getContext('2d');
-let chart = new Chart(ctx, config);
 
 // Função para filtrar os dados
 function filtrarDados() {
@@ -60,23 +55,35 @@ function filtrarDados() {
 document.getElementById('filtro').addEventListener('change', filtrarDados);
 
 const config = {
-	type: 'doughnut',
+	type: 'line',
 	data: {
 		labels: [],
 		datasets: [{
 			label: 'Consumo de água',
-			data: [],
+			data: [dados],
 			fill: false,
-			backgroundColor: [Colors],
 			borderColor: 'blue',
 			tension: 0.1
 		}]
 	},
 	options: {
+		legend:{
+			display: true,
+			position: 'bottom',
+			fontSize: 15,
+		},
+		title:{
+			display: true,
+			text: 'Litros de água utilizados',
+		},
+		tooltips:{
+			enable: true,
+			intersect: true,
+		},
 		responsive: true,
 		maintainAspectRatio: false,
 		scales: {
-			xAxes: [{
+			xAxis: [{
 				type: 'time',
 				time: {
 					unit: 'day',
@@ -119,7 +126,7 @@ const config = {
 					}
 				}
 			}],
-			yAxes: [{
+			yAxis: [{
 				scaleLabel: {
 					display: true,
 					labelString: 'Consumo (litros)'
@@ -128,6 +135,11 @@ const config = {
 		}
 	}
 };
+
+// Cria o gráfico com os dados iniciais
+let ctx = document.getElementById('chart').getContext('2d');
+let chart = new Chart(ctx, config);
+
 
 
 

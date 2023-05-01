@@ -89,6 +89,7 @@ header {
 }
 
 canvas {
-    width: 400px;
+    width: 80%;
     height: 400px;
+    padding: 10;
 }

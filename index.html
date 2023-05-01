@@ -5,6 +5,7 @@
     <title>Dashboard de Consumo de Água</title>
     <link rel="stylesheet" href="./CSS/main.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./JS/cons.js"></script>
 </head>
 
@@ -24,21 +25,24 @@
             <br />
             <hr>
         </div>
-        <script src="./JS/cons.js"></script>
+
         <div class="content">
             <div class="titulo-secao">
                 <h2>Gráficos para controle de uso de água</h2>
                 </br>
                 <hr>
             </div>
+
             <label for="filtro">Filtrar por:</label>
             <select id="filtro">
                 <option value="dia">Dia</option>
                 <option value="semana">Semana</option>
                 <option value="mes">Mês</option>
             </select>
-            <canvas id="chart"></canvas>
-
+            <div class="chart">
+                <canvas id="chart"></canvas>
+            </div>
+            <script src="./JS/cons.js"></script>
         </div>
     </section>
 
